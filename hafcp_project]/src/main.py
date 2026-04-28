@@ -79,11 +79,11 @@ def main():
         if churn_rate > overall_churn:
             valid_patterns.append((p, u, churn_rate, support))
 
-    # 🔹 print results
+    # print results
     for i, (p, u, cr, sup) in enumerate(valid_patterns[:5]):
         print(f"Rank {i+1}: {p} | Utility: {round(u,4)} | Churn: {round(cr,4)} | Support: {round(sup,4)}")
 
-    # 🔹 Step 9: Pick best valid pattern
+    # Step 9: Pick best valid pattern
     if len(valid_patterns) > 0:
        best = max(valid_patterns, key=lambda x: x[2])  # x[2] = churn rate
        top_pattern = best[0]
@@ -93,7 +93,7 @@ def main():
 
     print("\n Top Pattern Selected:", top_pattern)
 
-    # 🔹 Step 10: Final evaluation
+    # Step 10: Final evaluation
     hafcp_feat = create_hafcp_feature(transactions_full, top_pattern)
 
     indices = [i for i, val in enumerate(hafcp_feat) if val == 1]
